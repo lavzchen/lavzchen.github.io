@@ -9,8 +9,8 @@ user_title: lavzchen - FrontEnd
 email: lavzchen@163.com
 twitter_username: lavzchen
 github_username:  lavzchen
-gplus_username:  
-disqus_username: 
+#gplus_username:  
+#disqus_username: 
 
 # Build settings
 markdown: kramdown
