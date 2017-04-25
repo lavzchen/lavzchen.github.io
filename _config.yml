@@ -1,8 +1,8 @@
 # Site settings
 title: lavzchen - Android&iOS Developer
 description: "A blog about learn mobile develop..."
-baseurl: "https://lavzchen.githu.io" 
-url: "https://lavzchen.githu.io" 
+baseurl: "https://lavzchen.github.io" 
+url: "https://lavzchen.github.io" 
 # User settings
 username: lavzchen
 user_title: lavzchen - FrontEnd
