@@ -1,83 +1,73 @@
 {
   "$jason": {
     "head": {
-      "title": "Search",
+      "title": "footer input",
       "data": {
-        "items": {
-          "@": "items@https://api.github.com/search/repositories?q=json"
-        }
+        "messages": [
+          "Hi there",
+          "hey who are you",
+          "I'm doing good my man",
+          "OK shut up now",
+          "😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤"
+        ]
       },
       "templates": {
         "body": {
-          "style": {
-            "background": "#3f0000",
-            "border": "none"
-          },
           "header": {
-            "style": {
-              "background": "#3f0000"
-            },
             "title": {
               "type": "label",
-              "text": "Search",
+              "text": "ethan",
               "style": {
-                "font": "HelveticaNeue",
-                "color": "#ffffff"
+                "font": "HelveticaNeue-CondensedBold"
               }
+            },
+            "style": {
+              "background": "#f00000",
+              "color": "#ffffff"
             }
           },
           "sections": [
             {
               "items": {
-                "{{#each items}}": {
+                "{{#each messages}}": {
                   "type": "horizontal",
-                  "href": {
-                    "url": "{{html_url}}",
-                    "view": "web"
-                  },
                   "style": {
-                    "spacing": "10"
+                    "padding": "10"
                   },
                   "components": [
                     {
-                      "type": "image",
-                      "url": "{{owner.avatar_url}}",
-                      "style": {
-                        "width": "30",
-                        "height": "30",
-                        "corner_radius": "5"
-                      }
+                      "{{#if $index%2 == 1}}": [
+                        {
+                          "type": "label",
+                          "text": "{{this}}",
+                          "class": "{{$index%2 == 1 ? 'left' : 'right'}}",
+                          "style": {
+                            "background": "#e4e6ea",
+                            "padding": "10",
+                            "corner_radius": "20",
+                            "color": "#000100"
+                          }
+                        },
+                        {
+                          "type": "space"
+                        }
+                      ]
                     },
                     {
-                      "type": "vertical",
-                      "style": {
-                        "spacing": "3"
-                      },
-                      "components": [
+                      "{{#else}}": [
                         {
-                          "type": "label",
-                          "style": {
-                            "color": "#FFD34E",
-                            "font": "HelveticaNeue-Bold",
-                            "size": "12"
-                          },
-                          "text": "{{full_name}}"
+                          "type": "space"
                         },
                         {
                           "type": "label",
+                          "text": "{{this}}",
+                          "class": "{{$index%2 == 1 ? 'left' : 'right'}}",
                           "style": {
-                            "color": "rgba(255,255,255,0.8)",
-                            "size": "10"
-                          },
-                          "text": "{{watchers_count}} Stars"
-                        },
-                        {
-                          "type": "label",
-                          "style": {
-                            "color": "rgba(255,255,255,0.8)",
-                            "size": "10"
-                          },
-                          "text": "{{description ? description : '' }}"
+                            "background": "#2e7cf6",
+                            "padding": "10",
+                            "corner_radius": "20",
+                            "color": "#ffffff"
+                          }
                         }
                       ]
                     }
@@ -85,7 +75,26 @@
                 }
               }
             }
-          ]
+          ],
+          "footer": {
+            "input": {
+              "style": {
+                "background": "#ebebeb"
+              },
+              "left": {
+                "image": "https://png.icons8.com/ios/100/000000/compact-camera.png"
+              },
+              "textfield": {
+                "placeholder": "Enter a message",
+                "style": {
+                  "background": "#ffffff"
+                }
+              },
+              "right": {
+                "text": "send"
+              }
+            }
+          }
         }
       }
     }
