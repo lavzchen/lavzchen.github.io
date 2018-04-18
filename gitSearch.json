@@ -1,106 +1,44 @@
 {
-  "$jason": {
-    "head": {
-      "title": "footer input",
-      "data": {
-        "messages": [
-          "Hi there",
-          "hey who are you",
-          "I'm doing good my man",
-          "OK shut up now",
-          "😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤😤"
-        ]
+  "footer": {
+    "input": {
+      "style": {
+        "background": "#cecece"
       },
-      "templates": {
-        "body": {
-          "header": {
-            "title": {
-              "type": "label",
-              "text": "ethan",
-              "style": {
-                "font": "HelveticaNeue-CondensedBold"
-              }
-            },
-            "style": {
-              "background": "#f00000",
-              "color": "#ffffff"
+      "left": {
+        "image": "https://www.jasonclient.org/img/camera.png",
+        "style": {
+          "color": "#ff0000"
+        },
+        "action": {
+          "type": "$media.camera"
+        }
+      },
+      "textfield": {
+        "name": "message",
+        "placeholder": "Say something...",
+        "style": {
+          "background": "#ffffff",
+          "color": "#ff0000",
+          "color:placeholder": "#ebebeb"
+        }
+      },
+      "right": {
+        "text": "Send",
+        "style": {
+          "color": "#ff0000",
+          "color:disabled": "#ebebeb"
+        },
+        "action": {
+          "type": "$network.request",
+          "options": {
+            "url": "https://jasonchat.org/post.json",
+            "method": "post",
+            "data": {
+              "message": "{{$get.message}}"
             }
           },
-          "sections": [
-            {
-              "items": {
-                "{{#each messages}}": {
-                  "type": "horizontal",
-                  "style": {
-                    "padding": "10"
-                  },
-                  "components": [
-                    {
-                      "{{#if $index%2 == 1}}": [
-                        {
-                          "type": "label",
-                          "text": "{{this}}",
-                          "class": "{{$index%2 == 1 ? 'left' : 'right'}}",
-                          "style": {
-                            "background": "#e4e6ea",
-                            "padding": "10",
-                            "corner_radius": "20",
-                            "color": "#000100"
-                          }
-                        },
-                        {
-                          "type": "space"
-                        }
-                      ]
-                    },
-                    {
-                      "{{#else}}": [
-                        {
-                          "type": "space"
-                        },
-                        {
-                          "type": "label",
-                          "text": "{{this}}",
-                          "class": "{{$index%2 == 1 ? 'left' : 'right'}}",
-                          "style": {
-                            "background": "#2e7cf6",
-                            "padding": "10",
-                            "corner_radius": "20",
-                            "color": "#ffffff"
-                          }
-                        }
-                      ]
-                    }
-                  ]
-                }
-              }
-            }
-          ],
-          "footer": {
-            "input": {
-              "style": {
-                "background": "#ebebeb"
-              },
-              "left": {
-                "image": "https://png.icons8.com/ios/100/000000/compact-camera.png"
-              },
-              "textfield": {
-                "placeholder": "Enter a message",
-                "style": {
-                  "background": "#ffffff"
-                }
-              },
-              "right": {
-                "text": "send",
-                "action": {
-                      "type": "$util.alert",
-                   "options": {
-                      "title": "Good job!",
-               "description": "You know how to press a button!"
-                    }
-                }
-              }
-            }
+          "success": {
+            "type": "$reload"
           }
         }
       }
