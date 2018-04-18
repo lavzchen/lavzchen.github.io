@@ -91,7 +91,14 @@
                 }
               },
               "right": {
-                "text": "send"
+                "text": "send",
+                "action": {
+                      "type": "$util.alert",
+                   "options": {
+                      "title": "Good job!",
+               "description": "You know how to press a button!"
+                    }
+                }
               }
             }
           }
